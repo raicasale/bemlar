@@ -83,9 +83,9 @@ Inicialmente, havíamos decidido atender o pedido de maior acurácia, uso do cam
 
 
 #### Pedido 4: "Anexei o score de bureau (Serasa/SPC). Se melhorar o número, usem sem dó."
-- **Status:** **APROVADO COM RESSALVA METODOLÓGICA**
-- **Justificativa da Aprovação:** O birô de crédito externo agrega o comportamento do tomador em todo o sistema financeiro nacional, sendo um preditor legítimo de propensão ao pagamento.
-- **Ressalva Aplicada (Corte Temporal):** Como um mesmo contrato possui mais de uma consulta registrada (aprovação inicial vs. revisões posteriores), foi mandatório filtrar estritamente a **última consulta efetuada antes ou no dia da data de referência ($D-7$)**. Consultas posteriores foram descartadas para blindar o algoritmo contra vazamento de dados futuros.
+- **Status:** **REPROVADO**
+- **Motivo da Recusa:** O score bureau de crédito externo agrega o comportamento do tomador em todo o sistema financeiro nacional, sendo um preditor legítimo de propensão ao pagamento. Porém, ao aplicarmos o filtro de data pela data de refêrenca do contrato, perdemos registros, já que contratos podem possuir mais de uma pontuação, uma feita no momento da aprovação, e outra em revisão. Foi observado que em 86% dos casos o score diminuiu no momento da revisão, mas como as datas são posteriores à data de referência, essa informação é perdida.
+- **Alternativa Implementada:** Ao invés de utilizar o score bureau, utilizamos variáveis ​​internas comportamentais e financeiras, como `media_dias_atraso` e `taxa_atrasos` (que, juntas, representam 51,6% do poder preditivo), além de também termos usado `percentual_valor_contrato_renda`. Todas as variáveis citadas estão disponíveis em tempo real em D−7, sem depender de bureaus externos.
 
 
 #### Pedido 5: "Tem também a lista de motivos de atraso anotada pelo SAC. Deve ajudar a entender o que está acontecendo."
