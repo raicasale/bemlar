@@ -53,7 +53,7 @@ No e-mail de especificação do piloto de cobrança preventiva, os pedidos do Ri
 
     - Maior acurácia possível;
     - Uso do campo "status_contrato";
-    - Uso das informações de sexo e localização;;
+    - Uso das informações de sexo e localização;
     - Uso do score bureau;
     - Uso da lista de motivos de atraso.
 
